@@ -8,30 +8,36 @@
     <title>Personal Portfolio Website</title>
     <!-- boxicons -->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <!-- Loader CSS -->
+    <link rel="stylesheet" href="css/Loader.css">
     <!-- custom css -->
     <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
 
-    <!-- preloader -->
+    <!-- Add the loader container -->
+    <div id="loading-container">
+        <div id="progress-text">Loading</div>
+    </div>
 
     <!-- main_content -->
-    <!-- header -->
-    <header>
-        <a href="#" class="logo">Atlas</a>
+    <div class="portfolio-content">
+        <!-- header -->
+        <header>
+            <a href="#" class="logo">Atlas</a>
 
-        <i class='bx bx-menu' id="menu-icon"></i>
+            <i class='bx bx-menu' id="menu-icon"></i>
 
-        <nav>
-            <a href="#" class="active">Home</a>
-            <a href="#">Services</a>
-            <a href="#">Resume</a>
-            <a href="#">Portfolio</a>
-            <a href="#">Contact</a>
-        </nav>
-    </header>
-    <!-- bars background -->
+            <nav>
+                <a href="#" class="active">Home</a>
+                <a href="#">Services</a>
+                <a href="#">Resume</a>
+                <a href="#">Portfolio</a>
+                <a href="#">Contact</a>
+            </nav>
+        </header>
+        <!-- bars background -->
 
     <!-- home section -->
     <section class="home ">
@@ -64,7 +70,7 @@
         </div>
     </section>
     <!-- services section -->
-    <section class="services">
+    <section class="services ">
         <h2 class="heading">My <span>Services</span></h2>
         <div class="services-container">
             <div class="services-box">
@@ -295,6 +301,7 @@
     
 
     <!-- custom js -->
+    <script type="module" src="js/Loader.js"></script>
     <script src="js/script.js"></script>
 </body>
 
