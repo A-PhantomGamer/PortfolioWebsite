@@ -1,308 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Personal Portfolio Website</title>
-    <!-- boxicons -->
+    <title>Your Portfolio</title>
+    <!-- Single Boxicons import -->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <!-- Loader CSS -->
-    <link rel="stylesheet" href="css/Loader.css">
-    <!-- custom css -->
-    <link rel="stylesheet" href="css/style.css">
+    <!-- Single Font Awesome import -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles/main.css">
+    <script src="scripts/nav.js" defer></script>
 </head>
-
 <body>
+    <nav class="navbar">
+        <div class="logo">YourName</div>
+        <button class="hamburger" aria-label="Toggle menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <div class="nav-links">
+            <a href="index.html" class="active">Home</a>
+            <a href="about.html">About</a>
+            <a href="projects.html">Projects</a>
+            <a href="contact.html">Contact</a>
+        </div>
+    </nav>
 
-    <!-- Add the loader container -->
-    <div id="loading-container">
-        <div id="progress-text">Loading</div>
-    </div>
-
-    <!-- main_content -->
-    <div class="portfolio-content">
-        <!-- header -->
-        <header>
-            <a href="#" class="logo">Atlas</a>
-
-            <i class='bx bx-menu' id="menu-icon"></i>
-
-            <nav>
-                <a href="#" class="active">Home</a>
-                <a href="#">Services</a>
-                <a href="#">Resume</a>
-                <a href="#">Portfolio</a>
-                <a href="#">Contact</a>
-            </nav>
-        </header>
-        <!-- bars background -->
-
-    <!-- home section -->
-    <section class="home ">
-        <div class="home-detail">
-            <h1>David Rogers</h1>
-            <h2>I'm a
-                <span style="--i:4;" data-text="Coder">Coder</span>
-                <span style="--i:3;" data-text="Gamer">Gamer</span>
-                <span style="--i:2;" data-text="Ethical Hacker">Ethical Hacker</span>
-                <span style="--i:1;" data-text="Writer">Writer</span>
-            </h2>
-            <p>Lorem ipsum dolor sit amet.</p>
-            <div class="btn-sci">
-                <a href="#" class="btn">Download CV</a>
-                <div class="sci">
-                    <a href="#"><i class='bx bxl-github'></i></a>
-                    <a href="#"></a>
-                    <a href="#"></a>
-                    <a href="#"></a>
-                </div>
+    <main class="home-container">
+        <div class="welcome-text">
+            <h1 class="animated-text">Hello, I'm <span class="highlight">Your Name</span></h1>
+            <p class="typewriter">Web Developer | Creative Thinker | Problem Solver</p>
+            <div class="cta-buttons">
+                <a href="about.html" class="cta-btn">Get to know me</a>
+                <a href="projects.html" class="cta-btn">View my work</a>
             </div>
         </div>
-
-        <div class="home-img">
-            <div class="img-box">
-                <div class="img-item">
-                    <img src="images/home.png" alt="">
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- services section -->
-    <section class="services ">
-        <h2 class="heading">My <span>Services</span></h2>
-        <div class="services-container">
-            <div class="services-box">
-                <div class="icon">
-                    <i class='bx bx-code-alt'></i>
-                    <a href="#"><i class='bx bx-arrow-back'></i></a>
-                </div>
-                <h3>Web Development</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos culpa aliquam voluptatem voluptas hic ut quod mollitia incidunt sint enim ducimus id doloremque itaque assumenda odit voluptatum, quam nam? Corrupti!</p>
-            </div>
-
-            <div class="services-box">
-                <div class="icon">
-                    <i class='bx bxs-paint'></i>
-                    <a href="#"><i class='bx bx-arrow-back'></i></a>
-                </div>
-                <h3>UI/UX Design</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos culpa aliquam voluptatem voluptas hic ut quod mollitia incidunt sint enim ducimus id doloremque itaque assumenda odit voluptatum, quam nam? Corrupti!</p>
-            </div>
-
-            <div class="services-box">
-                <div class="icon">
-                    <i class='bx bx-palette'></i>
-                    <a href="#"><i class='bx bx-arrow-back'></i></a>
-                </div>
-                <h3>Graphic Design</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos culpa aliquam voluptatem voluptas hic ut quod mollitia incidunt sint enim ducimus id doloremque itaque assumenda odit voluptatum, quam nam? Corrupti!</p>
-            </div>
-
-            <div class="services-box">
-                <div class="icon">
-                    <i class='bx bx-terminal'></i>
-                    <a href="#"><i class='bx bx-arrow-back'></i></a>
-                </div>
-                <h3>Hacking</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos culpa aliquam voluptatem voluptas hic ut quod mollitia incidunt sint enim ducimus id doloremque itaque assumenda odit voluptatum, quam nam? Corrupti!</p>
-            </div>
-
-            <div class="services-box">
-                <div class="icon">
-                    <i class='bx bx-pencil' ></i>
-                    <a href="#"><i class='bx bx-arrow-back'></i></a>
-                </div>
-                <h3>Writing</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos culpa aliquam voluptatem voluptas hic ut quod mollitia incidunt sint enim ducimus id doloremque itaque assumenda odit voluptatum, quam nam? Corrupti!</p>
-            </div>
-        </div>
-    </section>
-    <!-- resume section -->
-     <section class="resume active">
-        <div class="resume-container">
-            <div class="resume-box">
-                <h2>Why Hire Me?</h2>
-                <p class="desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
-                Labore repudiandae quam, quas veniam ipsam, repellendus praesentium rerum explicabo asperiores hic id neque nemo incidunt quos numquam architecto adipisci necessitatibus quidem!</p>
-                <button class="resume-btn active">Experience</button>
-                <button class="resume-btn">Education</button>
-                <button class="resume-btn">Skills</button>
-                <button class="resume-btn">About Me</button>
-            </div>
-
-            <div class="resume-box">
-                <div class="resume-detail experience active">
-                    <h2 class="heading">My <span>Experience</span></h2>
-                    <p class="desc">Lorem ipsum, dolor sit amet consectetur adipisicing elit. 
-                    Et laboriosam esse eos tenetur minus nemo quis, dolorem hic, recusandae fugiat quam pariatur delectus suscipit veniam similique nulla assumenda quidem voluptas?</p>
-                    <div class="resume-list">
-                        <div class="resume-item">
-                            <p class="year">2025 - Present</p>
-                            <h3>Web Developer</h3>
-                            <p class="company">No Job Yet</p>
-                            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
-                        </div>
-                        <div class="resume-item">
-                            <p class="year">2025 - Present</p>
-                            <h3>Tester</h3>
-                            <p class="company">No Job Yet</p>
-                            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
-                        </div>
-                        <div class="resume-item">
-                            <p class="year">2024 - Present</p>
-                            <h3>Programmer</h3>
-                            <p class="company">No Job Yet</p>
-                            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
-                        </div>
-                        <div class="resume-item">
-                            <p class="year">2024 - Present</p>
-                            <h3>Cyber Security</h3>
-                            <p class="company">No Job Yet</p>
-                            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
-                        </div>
-                        <div class="resume-item">
-                            <p class="year">2025 - Present</p>
-                            <h3>UI/UX Designer</h3>
-                            <p class="company">No Job Yet</p>
-                            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
-                        </div>
-                        <div class="resume-item">
-                            <p class="year">2024 - Present</p>
-                            <h3>Carpentry</h3>
-                            <p class="company">No Job Yet</p>
-                            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="resume-detail education">
-                    <h2 class="heading">My <span>Education</span></h2>
-                    <p class="desc">Lorem ipsum, dolor sit amet consectetur adipisicing elit. 
-                    Et laboriosam esse eos tenetur minus nemo quis, dolorem hic, recusandae fugiat quam pariatur delectus suscipit veniam similique nulla assumenda quidem voluptas?</p>
-                    <div class="resume-list">
-                        <div class="resume-item">
-                            <p class="year">2025</p>
-                            <h3>Programming Course</h3>
-                            <p class="company">Code Nation</p>
-                            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
-                        </div>
-                        <div class="resume-item">
-                            <p class="year">2025</p>
-                            <h3>Web Development</h3>
-                            <p class="company">Code Nation</p>
-                            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
-                        </div>
-                        <div class="resume-item">
-                            <p class="year">2024 - Present</p>
-                            <h3>Cyber Security</h3>
-                            <p class="company">Self Taught</p>
-                            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
-                        </div>
-                        <div class="resume-item">
-                            <p class="year">2025</p>
-                            <h3>Tester</h3>
-                            <p class="company">Code Nation</p>
-                            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
-                        </div>
-                        <div class="resume-item">
-                            <p class="year">2025</p>
-                            <h3>UI/UX Designer</h3>
-                            <p class="company">Code Nation</p>
-                            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
-                        </div>
-                        <div class="resume-item">
-                            <p class="year">2024</p>
-                            <h3>Carpentry</h3>
-                            <p class="company">SouthStaffs Collage</p>
-                            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="resume-detail skills">
-                    <h2 class="heading">My <span>Skills</span></h2>
-                    <p class="desc">Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
-                    <div class="resume-list">
-                        <div class="resume-item">
-                            <i class='bx bxl-html5'></i>
-                            <span>HTML5</span>
-                        </div>
-                        <div class="resume-item">
-                            <i class='bx bxl-css3' ></i>
-                            <span>CSS</span>
-                        </div>
-                        <div class="resume-item">
-                            <i class='bx bxl-javascript' ></i>
-                            <span>JavaScript</span>
-                        </div>
-                        <div class="resume-item">
-                            <i class='bx bxl-python' ></i>
-                            <span>Python</span>
-                        </div>
-                        <div class="resume-item">
-                            <i class='bx bxs-terminal' ></i>
-                            <span>Ethical Hacking</span>
-                        </div>
-                        <div class="resume-item">
-                            <i class='bx bxs-pencil' ></i>
-                            <span>Drawing</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="resume-detail about">
-                    <h2 class="heading">About <span>Me</span></h2>
-                    <p class="desc">Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
-                    <div class="resume-list">
-                        <div class="resume-item">
-                            <p>Name <span>David Rogers</span></p>
-                        </div>
-                        <div class="resume-item">
-                            <p>Gender <span>Male</span></p>
-                        </div>
-                        <div class="resume-item">
-                            <p>Age <span>20 Years Old</span></p>
-                        </div>
-                        <div class="resume-item">
-                            <p>Status <span>Single</span></p>
-                        </div>
-                        <div class="resume-item">
-                            <p>Town <span>Cannock</span></p>
-                        </div>
-                        <div class="resume-item">
-                            <p>Nationality <span>British</span></p>
-                        </div>
-                        <div class="resume-item">
-                            <p>Experience <span>0+ Years</span></p>
-                        </div>
-                        <div class="resume-item">
-                            <p>Full Time <span>Available</span></p>
-                        </div>
-                        <div class="resume-item">
-                            <p>Phone <span>(+44) 7368 594851</span></p>
-                        </div>
-                        <div class="resume-item">
-                            <p>Email <span>davidwrogers40@gmail.com</span></p>
-                        </div>
-                        <div class="resume-item">
-                            <p>Language <span>English</span></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-     </section>
-
-    <!-- portfolio section -->
-
-    <!-- contact section -->
-    
-
-    <!-- custom js -->
-    <script type="module" src="js/Loader.js"></script>
-    <script src="js/script.js"></script>
+        <div class="animated-background"></div>
+    </main>
 </body>
-
 </html>
