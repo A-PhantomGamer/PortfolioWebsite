@@ -221,12 +221,136 @@ async function fetchGithubActivity() {
     }
 }
 
+async function fetchGitHubContributions() {
+    const username = 'A-PhantomGamer';
+    try {
+        // Fetch user's contribution data
+        const response = await fetch(`https://api.github.com/users/${username}/events/public`, {
+            headers: {
+                'Accept': 'application/vnd.github.v3+json'
+            }
+        });
+
+        if (!response.ok) {
+            throw new Error(`GitHub API responded with status: ${response.status}`);
+        }
+
+        const events = await response.json();
+        
+        // Calculate contributions
+        const contributions = calculateContributions(events);
+        
+        // Update the stats
+        document.getElementById('total-contributions').textContent = contributions.total;
+        document.getElementById('current-streak').textContent = `${contributions.currentStreak} days`;
+        document.getElementById('longest-streak').textContent = `${contributions.longestStreak} days`;
+        
+        // Render contribution graph
+        renderContributionGraph(contributions.dailyContributions);
+    } catch (error) {
+        console.error('Error fetching GitHub contributions:', error);
+        document.querySelector('.github-stats-container').innerHTML = `
+            <div class="error-message">
+                <p>Error loading GitHub contributions: ${error.message}</p>
+            </div>`;
+    }
+}
+
 // Make sure the script is loaded and running
 console.log('GitHub script loaded');
 document.addEventListener('DOMContentLoaded', () => {
     console.log('DOM loaded, fetching GitHub data...');
     fetchGitHubProjects();
     fetchGithubActivity();
+    fetchGitHubContributions();
 });
+
+function calculateContributions(events) {
+    const today = new Date();
+    const dailyContributions = new Map();
+    let currentStreak = 0;
+    let longestStreak = 0;
+    let total = 0;
+
+    // Process last 30 days
+    for (let i = 0; i < 30; i++) {
+        const date = new Date(today);
+        date.setDate(date.getDate() - i);
+        const dateStr = date.toISOString().split('T')[0];
+        dailyContributions.set(dateStr, 0);
+    }
+
+    // Count contributions
+    events.forEach(event => {
+        if (['PushEvent', 'CreateEvent', 'PullRequestEvent'].includes(event.type)) {
+            const date = event.created_at.split('T')[0];
+            if (dailyContributions.has(date)) {
+                dailyContributions.set(date, dailyContributions.get(date) + 1);
+            }
+        }
+    });
+
+    // Calculate streaks and total
+    let tempStreak = 0;
+    [...dailyContributions.entries()].sort().forEach(([date, count]) => {
+        total += count;
+        if (count > 0) {
+            tempStreak++;
+            longestStreak = Math.max(longestStreak, tempStreak);
+        } else {
+            tempStreak = 0;
+        }
+    });
+
+    // Calculate current streak
+    let checking = true;
+    tempStreak = 0;
+    [...dailyContributions.entries()].reverse().forEach(([date, count]) => {
+        if (checking) {
+            if (count > 0) {
+                tempStreak++;
+            } else if (tempStreak === 0) {
+                checking = false;
+            }
+        }
+    });
+    currentStreak = tempStreak;
+
+    return {
+        total,
+        currentStreak,
+        longestStreak,
+        dailyContributions
+    };
+}
+
+function renderContributionGraph(dailyContributions) {
+    const graphContainer = document.getElementById('contribution-graph');
+    if (!graphContainer) return;
+    
+    graphContainer.innerHTML = '';
+
+    const wrapper = document.createElement('div');
+    wrapper.style.display = 'grid';
+    wrapper.style.gridTemplateColumns = 'repeat(30, 1fr)';
+    wrapper.style.gap = '2px';
+
+    [...dailyContributions.entries()].forEach(([date, count]) => {
+        const cell = document.createElement('div');
+        cell.className = `contribution-cell contribution-level-${getContributionLevel(count)}`;
+        cell.title = `${date}: ${count} contributions`;
+        wrapper.appendChild(cell);
+    });
+
+    graphContainer.appendChild(wrapper);
+}
+
+function getContributionLevel(count) {
+    if (count === 0) return 0;
+    if (count <= 2) return 1;
+    if (count <= 5) return 2;
+    if (count <= 10) return 3;
+    return 4;
+}
 
 
