@@ -8,6 +8,7 @@ async function fetchGitHubProjects() {
             }
         });
 
+        console.log('Response status:', response.status);
         if (!response.ok) {
             throw new Error(`GitHub API responded with status: ${response.status}`);
         }
@@ -158,12 +159,14 @@ function createActivityElement(event) {
 async function fetchGithubActivity() {
     const username = 'A-PhantomGamer';
     try {
+        console.log('Fetching GitHub activity...');
         const eventsResponse = await fetch(`https://api.github.com/users/${username}/events/public`, {
             headers: {
                 'Accept': 'application/vnd.github.v3+json'
             }
         });
 
+        console.log('Response status:', eventsResponse.status);
         if (!eventsResponse.ok) {
             throw new Error(`GitHub API responded with status: ${eventsResponse.status}`);
         }
@@ -224,21 +227,24 @@ async function fetchGithubActivity() {
 async function fetchGitHubContributions() {
     const username = 'A-PhantomGamer';
     try {
-        // Fetch user's contribution data
+        console.log('Fetching contributions...');
         const response = await fetch(`https://api.github.com/users/${username}/events/public`, {
             headers: {
                 'Accept': 'application/vnd.github.v3+json'
             }
         });
 
+        console.log('Response status:', response.status);
         if (!response.ok) {
             throw new Error(`GitHub API responded with status: ${response.status}`);
         }
 
         const events = await response.json();
+        console.log('Fetched events:', events);
         
         // Calculate contributions
         const contributions = calculateContributions(events);
+        console.log('Calculated contributions:', contributions);
         
         // Update the stats
         document.getElementById('total-contributions').textContent = contributions.total;
@@ -256,10 +262,9 @@ async function fetchGitHubContributions() {
     }
 }
 
-// Make sure the script is loaded and running
-console.log('GitHub script loaded');
+console.log('GitHub.js loading...');
 document.addEventListener('DOMContentLoaded', () => {
-    console.log('DOM loaded, fetching GitHub data...');
+    console.log('DOM loaded, fetching GitHub data...'); // Replace with your actual message
     fetchGitHubProjects();
     fetchGithubActivity();
     fetchGitHubContributions();
@@ -352,5 +357,7 @@ function getContributionLevel(count) {
     if (count <= 10) return 3;
     return 4;
 }
+
+
 
 

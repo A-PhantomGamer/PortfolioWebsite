@@ -4,9 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Projects - Your Portfolio</title>
-    <!-- Single Font Awesome import -->
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Your CSS - try both relative and absolute paths -->
     <link rel="stylesheet" href="styles/main.css">
+    <script>
+        // Add this right after your CSS link
+        document.addEventListener('DOMContentLoaded', () => {
+            const cssLoaded = document.styleSheets.length > 0;
+            console.log('CSS loaded:', cssLoaded);
+            console.log('Number of stylesheets:', document.styleSheets.length);
+        });
+    </script>
+    <!-- Scripts -->
     <script src="scripts/nav.js" defer></script>
     <script src="scripts/github.js" defer></script>
 </head>
@@ -19,10 +29,10 @@
             <span></span>
         </button>
         <div class="nav-links">
-            <a href="index.html">Home</a>
-            <a href="about.html">About</a>
-            <a href="projects.html" class="active">Projects</a>
-            <a href="contact.html">Contact</a>
+            <a href="/portfolio/index.html">Home</a>
+            <a href="/portfolio/about.html">About</a>
+            <a href="/portfolio/projects.html" class="active">Projects</a>
+            <a href="/portfolio/contact.html">Contact</a>
         </div>
     </nav>
 
@@ -122,7 +132,6 @@
         </div>
     </div>
 </div>
-
 
 
 

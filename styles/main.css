@@ -2,6 +2,12 @@
 /* All imports must be at the very top, after @charset if present */
 @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css');
 
+/* Test style to verify CSS loading */
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
 /* Root variables */
 :root {
     --primary-color: #2a2a2a;
@@ -1596,12 +1602,13 @@ body {
     margin-bottom: 3rem;
 }
 
+/* GitHub Stats Styles */
 .github-stats-section {
     background: rgba(255, 255, 255, 0.05);
     border-radius: 15px;
     padding: 2rem;
     border: 1px solid rgba(100, 255, 218, 0.1);
-    margin-top: 1rem;
+    margin-top: 2rem;
 }
 
 .github-stats-container {
@@ -1643,9 +1650,10 @@ body {
 .stat-value {
     font-size: 1.5rem;
     font-weight: bold;
-    color: #fff;
+    color: var(--text-color);
 }
 
+/* Contribution Graph Styles */
 .contribution-graph {
     background: rgba(255, 255, 255, 0.03);
     border-radius: 10px;
@@ -1657,7 +1665,6 @@ body {
     overflow-x: auto;
 }
 
-/* Contribution cell styles */
 .contribution-cell {
     width: 12px;
     height: 12px;
@@ -1672,12 +1679,22 @@ body {
     box-shadow: 0 0 8px rgba(100, 255, 218, 0.5);
 }
 
-/* Contribution level colors - GitHub-like theme */
+/* Contribution level colors */
 .contribution-level-0 { background-color: #161b22; }
 .contribution-level-1 { background-color: #0e4429; }
 .contribution-level-2 { background-color: #006d32; }
 .contribution-level-3 { background-color: #26a641; }
 .contribution-level-4 { background-color: #39d353; }
+
+/* Error message styling */
+.error-message {
+    text-align: center;
+    padding: 1rem;
+    color: var(--text-color);
+    background: rgba(255, 0, 0, 0.1);
+    border-radius: 8px;
+    border: 1px solid rgba(255, 0, 0, 0.2);
+}
 
 /* Responsive adjustments */
 @media screen and (max-width: 768px) {
@@ -1708,6 +1725,8 @@ body {
     transform: translateY(-5px);
     border-color: var(--accent-color);
 }
+
+
 
 
 
